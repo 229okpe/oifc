@@ -14,7 +14,7 @@ class adhesionCoursController extends Controller
 
         $cours = Cours::findOrFail($id);
         $user=[
-            'nom' => 'Cedric',
+            'nom' => 'CedricCC',
             "prenom" => 'Magloire',
             'email' => 'akoffodjic@gmail.com',
             'telephone' => '0022996199507'
