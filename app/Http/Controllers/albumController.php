@@ -36,7 +36,7 @@ class albumController extends Controller
         $folder=str_replace(' ','-',$request->titre);
         foreach($request->file('photos') as $file)
         {  
-            $path = $request->file('photos')->storeAs($folder, $i.$request->image->extension(), 'public'); 
+            $path = $request->file('photos')->storeAs('mediatheque/'.$folder, $i.$request->image->extension(), 'public'); 
             $path.=$i.$request->image->extension().';';
             $i++;
          }
