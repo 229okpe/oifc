@@ -41,6 +41,24 @@ Route::get('/donner-acces/{idUser}/{idCours}', 'App\Http\Controllers\coursContro
 
 Route::get('/supprimer-acces/{id}', 'App\Http\Controllers\coursController@removeAcces')->name("cours.supprimeracces"); 
 
-Route::post('/supprimer_cours/{id_cours}', 'App\Http\Controllers\coursController@delete')->name("cours.delete"); 
+Route::get('/supprimer_cours/{id_cours}', 'App\Http\Controllers\coursController@delete')->name("cours.delete"); 
+
+
+//Album
+
+Route::get('/mediatheque/', 'App\Http\Controllers\albumController@index')->name("album.all"); 
+
+
+Route::get('/mediatheque/{id}', 'App\Http\Controllers\albumController@index')->name("album.show"); 
+
+
+Route::get('/supprimer-album/{id}', 'App\Http\Controllers\albumController@delete')->name("album.delete");
+
+
+Route::patch('/modifier-album/{id}', 'App\Http\Controllers\albumController@delete')->name("album.update");
+
+
+//Articles
+
 
 require __DIR__.'/auth.php';

@@ -1,6 +1,4 @@
-
 <?php
-
 namespace App\Http\Controllers;
 
 use auth;
@@ -41,12 +39,12 @@ class coursController extends Controller
     public function store1(Request $request)
     {     
         $code=substr(sha1(uniqid()),0,5);
-     /*  $request->validate([
+       $request->validate([
             'titre' => ['required'],
             'description' => ['required'],
             'nbrechapitre' => ['required', 'numeric'],
             'montant' => ['required', 'numeric']
-        ]);*/ 
+        ]);  
      $imageName=time().'-'.str_replace(' ','-',$request->titre).'.'.$request->image->extension();
         $path = $request->file('image')->storeAs('imageCours',  $imageName, 'public'); 
       
@@ -127,7 +125,24 @@ class coursController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $request->validation([
+            'titre' => ['required'],
+            'description' => ['required'],
+            'nbrechapitre' => ['required', 'numeric'],
+            'montant' => ['required', 'numeric']
+         ]);
+    
+         $cours = Cours::FindorFail($id);
+
+         $cours->update([
+            'titre' =>$request->titre,
+            'description' =>$request->description ,
+            'nbre_chapitre' =>$request->nbreChapitreCours,
+            'montant' =>$request->montantCours,
+            'image' =>$request->imageCours, 
+        ]);
+
+
     }
 
     /**
@@ -138,7 +153,7 @@ class coursController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteCours=Cours::where('id', $id)->delete();
     }
 
     public function mesCours(){
@@ -194,4 +209,3 @@ class coursController extends Controller
      }
 
 }
-++
