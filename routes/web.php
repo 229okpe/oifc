@@ -56,6 +56,7 @@ Route::get('/supprimer-album/{id}', 'App\Http\Controllers\albumController@delete
 
 Route::patch('/modifier-album/{id}', 'App\Http\Controllers\albumController@delete')->name("album.update");
 
+Route::get('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
 
 //Articles
 Route::get('/articles/', 'App\Http\Controllers\articleController@index')->name("article.all"); 

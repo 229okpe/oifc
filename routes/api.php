@@ -22,7 +22,7 @@ Route::middleware('auth')->group( function() {
 
 });
 
-Route::put('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
+//Route::put('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
 
 
 

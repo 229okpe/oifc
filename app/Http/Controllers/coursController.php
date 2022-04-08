@@ -105,7 +105,7 @@ class coursController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     *crea
      * @param  string  $title
      * @return \Illuminate\Http\Response
      */

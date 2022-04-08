@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\FormationAvenir;
 
-class formationavenirController extends Controller
+class contactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class formationavenirController extends Controller
      */
     public function index()
     {
-       $formations=FormationAvenir::all();
+        //
     }
 
     /**
@@ -25,19 +24,7 @@ class formationavenirController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validation([
-            'titre' =>  ['required'] ,
-            'dateBeginning'  =>  ['required', 'date'],
-            'description'  =>  ['required'],
-            'lieu'  =>  ['required']
-        ]);
-
-        $formation= Formationavenir::create([
-            'titre' => $request->titre,
-            'dateBeginning' => $request->dateBeginning,
-            'description' =>$request->description,
-            'lieu'=>$request->lieu
-        ]); 
+        //
     }
 
     /**
@@ -48,8 +35,7 @@ class formationavenirController extends Controller
      */
     public function show($id)
     {
-     $formation= FormationAvenir::FindorFail($id);
-     return $formation;
+        //
     }
 
     /**
@@ -61,7 +47,7 @@ class formationavenirController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -72,6 +58,6 @@ class formationavenirController extends Controller
      */
     public function destroy($id)
     {
-        $deleteFormationavenir=FormationAvenir::where('id', $id)->delete();
+        //
     }
 }
