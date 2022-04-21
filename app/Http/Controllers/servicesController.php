@@ -25,7 +25,20 @@ class servicesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validation([
+            'titre' => ['required'],
+            'description' => ['required'],
+            'image' => ['required'],
+            'type' => ['file','mimes:jpg,png']
+        ]) ;
+        $imageName=time().'-'.str_replace(' ','-',$request->titre).'.'.$request->image->extension();
+        $path = $request->file('image')->storeAs('service',  $imageName, 'public'); 
+        Service::create([
+            'titre' => $request->titre,
+            'description' =>  $request->description,
+            'image' => $path,
+            'type' => $request->type
+        ]);
     }
 
     /**
@@ -36,7 +49,8 @@ class servicesController extends Controller
      */
     public function show($id)
     {
-        //
+        $service= Service::FindorFail($id);
+        return $service;
     }
 
     /**
@@ -48,7 +62,23 @@ class servicesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+     
+        $request->validation([
+            'titre' => ['required'],
+            'description' => ['required'],
+            'image' => ['required'],
+            'type' => ['file','mimes:jpg,png']
+        ]) ;
+        $imageName=time().'-'.str_replace(' ','-',$request->titre).'.'.$request->image->extension();
+        $path = $request->file('image')->storeAs('service',  $imageName, 'public'); 
+        $service= Service::FindorFail($id);
+        
+        $service->create([
+            'titre' => $request->titre,
+            'description' =>  $request->description,
+            'image' => $path,
+            'type' => $request->type
+        ]);
     }
 
     /**
@@ -59,6 +89,7 @@ class servicesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteservice=Service::where('id', $id)->delete();
+ 
     }
 }

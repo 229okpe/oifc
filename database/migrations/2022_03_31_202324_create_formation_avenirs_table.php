@@ -19,6 +19,7 @@ class CreateFormationAvenirsTable extends Migration
             $table->date('dateBeginning');
             $table->string('description');
             $table->string('lieu');
+            $table->string('prix');
             $table->timestamps();
         });
     }

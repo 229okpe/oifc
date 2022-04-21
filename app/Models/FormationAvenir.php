@@ -12,6 +12,7 @@ class FormationAvenir extends Model
         'titre',
         'dateBeginning',
         'description',
-        'lieu'
+        'lieu',
+        'prix'
     ]; 
 }

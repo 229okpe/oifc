@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class contactController extends Controller
@@ -13,7 +14,7 @@ class contactController extends Controller
      */
     public function index()
     {
-        //
+        $contact = Contact::all();
     }
 
     /**
@@ -24,7 +25,18 @@ class contactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validation([
+            'siege'=>['required'],
+            'email'=>['required','email'],
+            'telephone'=>['trequired', 'numeric']
+        ]);
+
+        Contact::create([
+            'siege'=>$request->siege,
+            'email'=>$request->email,
+            'telephone'=>$request->telephone
+        ]);
+
     }
 
     /**
@@ -35,7 +47,8 @@ class contactController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact=FindOrFail($id);
+        return $contact;
     }
 
     /**
@@ -47,7 +60,18 @@ class contactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validation([
+            'siege'=>['required'],
+            'email'=>['required','email'],
+            'telephone'=>['required', 'numeric']
+        ]);
+        $contact=Contact::FindorFail($id);
+
+        $contact->create([
+            'siege'=>$request->siege,
+            'email'=>$request->email,
+            'telephone'=>$request->telephone
+        ]);
     }
 
     /**
@@ -58,6 +82,6 @@ class contactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deletecontact=Contact::where('id', $id)->delete();
     }
 }

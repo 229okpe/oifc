@@ -61,7 +61,21 @@ class formationavenirController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $request->validation([
+            'titre' =>  ['required'] ,
+            'dateBeginning'  =>  ['required', 'date'],
+            'description'  =>  ['required'],
+            'lieu'  =>  ['required']
+        ]);
+
+        $formation= FormationAvenir::FindorFail($id);
+
+        $formation->create([
+            'titre' => $request->titre,
+            'dateBeginning' => $request->dateBeginning,
+            'description' =>$request->description,
+            'lieu'=>$request->lieu
+        ]); 
     }
 
     /**
