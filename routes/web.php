@@ -21,7 +21,7 @@ Route::get('/interesse/{id}', 'App\Http\Controllers\adhesionCoursController@adhe
 
 Route::get('/cours', 'App\Http\Controllers\coursController@index');
 
-Route::get('/cours/{titre}', 'App\Http\Controllers\coursController@show');
+Route::get('/cours/{id}', 'App\Http\Controllers\coursController@show');
 
 Route::get('/mes-cours/', 'App\Http\Controllers\coursController@Mescours');
 
@@ -57,6 +57,9 @@ Route::get('/supprimer-album/{id}', 'App\Http\Controllers\albumController@delete
 Route::patch('/modifier-album/{id}', 'App\Http\Controllers\albumController@delete')->name("album.update");
 
 Route::get('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
+
+
+Route::get('/contact','App\Http\Controllers\envoiDevisController@envoiMailDevis') ;
 
 //Articles
 Route::get('/articles/', 'App\Http\Controllers\articleController@index')->name("article.all"); 

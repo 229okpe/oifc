@@ -109,9 +109,13 @@ class coursController extends Controller
      * @param  string  $title
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($id)
     {
-        $cours = Cours::where('titre', $title)->get();
+        $cours= Cours::where('titre', $id)->get();
+        
+        $mesactivites=Activites::where('id_cours',  $cours[0]->id_cours )->get();
+             
+                return [$cours,$mesactivites];
 
         return $cours; 
     }
@@ -157,31 +161,26 @@ class coursController extends Controller
     }
 
     public function mesCours(){
+ 
        //  $idUser=auth()->$user->id;
           $idUser=1;
 
         $Ids= Map_User_Cours::where('id_etudiant', $idUser)
-                        ->take(10)
+                        ->take(100)
                         ->get('id_cours');
-         if($Ids->count() > 0){                                                                                                                                                         
+         if($Ids->count() > 0){
+                                                                                                                                                                    
             foreach($Ids as $id){ 
               
                     $mescours[]= Cours::where('id', $id->id_cours)->get();
-                   
-                    foreach ($mescours as $cours)
-                    {
-                        foreach ($cours as $cour)
-                        {
-                 
-                          $mesactivites[] = Activites::where('id_cours',$cour->id_cours) ->get();
-                       }
-                    }
+                
                 } 
+              
             }
            else{
                     dd("Aucun cours trouvé");
-                }
-                return [$mescours,$mesactivites];
+                }  
+                return $mescours;
             }
     
           

@@ -28,8 +28,8 @@ class servicesController extends Controller
         $request->validation([
             'titre' => ['required'],
             'description' => ['required'],
-            'image' => ['required'],
-            'type' => ['file','mimes:jpg,png']
+            'type' => ['required'],
+            'image' => ['file','mimes:jpg,png,jpeg']
         ]) ;
         $imageName=time().'-'.str_replace(' ','-',$request->titre).'.'.$request->image->extension();
         $path = $request->file('image')->storeAs('service',  $imageName, 'public'); 

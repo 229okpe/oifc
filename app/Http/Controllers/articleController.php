@@ -37,7 +37,7 @@ class articleController extends Controller
         Article::create([
             'titre'=>$request->titre,
             'contenu'=>$request->contenu,
-            'titre'=>$request->$path
+            'photo'=>$request->$path
         ]);
          
     }

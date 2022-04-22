@@ -28,7 +28,7 @@ class contactController extends Controller
         $request->validation([
             'siege'=>['required'],
             'email'=>['required','email'],
-            'telephone'=>['trequired', 'numeric']
+            'telephone'=>['required', 'numeric']
         ]);
 
         Contact::create([
