@@ -14,15 +14,21 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
-    'paths' => ['api/*'],
+
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+
     'allowed_methods' => ['*'],
-    // 'allowed_origins' => ['http://127.0.0.1:8080/', 'http://localhost:8080/'], <-- doesn't work, still gets CORS error
-    'allowed_origins' => ['*'],  // <-- it works but it should not be like that
+
+    'allowed_origins' => ['*'],
+
     'allowed_origins_patterns' => [],
-    'allowed_headers' => ['content-type', 'accept', 'x-custom-header', 'Access-Control-Allow-Origin'],
-    // 'allowed_headers' => ['*'],
-    'exposed_headers' => ['x-custom-response-header'],
+
+    'allowed_headers' => ['*'],
+
+    'exposed_headers' => [],
+
     'max_age' => 0,
+
     'supports_credentials' => false,
 
 ];
