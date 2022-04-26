@@ -33,9 +33,9 @@ class envoiMailController extends Controller
 
    $send=Mail::send( new mailContact($formContactData) );
      
-   return response()->json([
-    'message' => 'envoyé'
-]);
+   return response()->json(['message' => 'envoyé'])
+                ->header("Access-Control-Allow-Origin", config('cors.allowed_origins'))
+                ->header("Access-Control-Allow-Methods", config('cors.allowed_methods'));;
       /*  if(){
             return response()->json([
                 'message' => 'success'
