@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */ 
-Route::middleware('Cors')->group( function() {
+Route::middleware('auth')->group( function() {
 
         Route::get('/interesse/{id}', 'App\Http\Controllers\adhesionCoursController@adhesionCours');
         Route::get('/cours', 'App\Http\Controllers\coursController@index'); 
@@ -42,9 +42,9 @@ Route::middleware('Cors')->group( function() {
 
 Route::get('/', function () {return view('welcome');}); 
 
+Route::get('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
 Route::get('/mediatheque/', 'App\Http\Controllers\albumController@index')->name("album.all"); 
 Route::get('/mediatheque/{id}', 'App\Http\Controllers\albumController@show')->name("album.show"); 
-Route::get('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
 Route::get('/devis','App\Http\Controllers\envoiDevisController@envoiMailDevis') ;
 Route::get('/articles/', 'App\Http\Controllers\articleController@index')->name("article.all"); 
 Route::get('/articles/{id}', 'App\Http\Controllers\articleController@show')->name("article.show"); 
