@@ -30,8 +30,9 @@ class envoiMailController extends Controller
        'sujet' => 'Salutation',
        'message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat est eu sapien lacinia interdum. Sed vitae nibh urna. Etiam quis lorem ullamcorper, ullamcorper justo non, feugiat nunc. Etiam nulla quam, maximus id blandit at, sodales at quam. Nullam interdum arcu ac lacinia suscipit. Donec a purus nisl.'
    ];
-   $send=Mail::to('test@mail.test')->send( new mailContact($formContactData) );
-    
+
+ /*  $send=Mail::to('test@mail.test')->send( new mailContact($formContactData) );
+    */
    return response()->json([
     'message' => 'envoyé'
 ]);
