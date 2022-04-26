@@ -31,7 +31,8 @@ class mailContact extends Mailable
      */
     public function build()
     {
-        return $this->from('contact@oifcconsulting.com')
+        return $this->from('contact@oifcgroup.com')
+                    ->to('contact@oifcgroup.com')
                     ->subject("Vous  avez recu un nouveau message !")
                     ->view('emails.mailContact');
     }
