@@ -92,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contact@oifcgroup.com'),
-        'name' => env('MAIL_FROM_NAME', 'OIFC Group'),
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name' => env('MAIL_FROM_NAME'),
     ],
 
     /*
