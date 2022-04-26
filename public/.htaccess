@@ -19,6 +19,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-    Header set Access-Control-Allow-Origin "*"
-Header set Access-Control-Allow-Headers: "customKey1,customKey2, headers, Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    
 </IfModule>
