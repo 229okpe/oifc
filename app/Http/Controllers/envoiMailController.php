@@ -10,7 +10,7 @@ class envoiMailController extends Controller
 {
 
     public function envoiMailContact(){
-     /*   $request->validation([
+    /*    $request->validation([
             'nom'=>['required'],
             'prenom'=>['required'],
             'email'=>['required', 'email'],
@@ -23,7 +23,7 @@ class envoiMailController extends Controller
        'prenom' =>$request->prenom,
        'email' => $request->email,
         'message' => $request->message
-         ];*/
+         ]; */
    $formContactData= [
        'nom' => 'Cedric Magloire',
        'email' => 'akoffodji@gmail.com',
