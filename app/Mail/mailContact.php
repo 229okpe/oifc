@@ -31,8 +31,7 @@ class mailContact extends Mailable
      */
     public function build()
     {
-        return $this ->to('akoffodjic@gmail.com')
-                    ->subject("Vous  avez recu un nouveau message !")
+        return $this->subject("Vous  avez recu un nouveau message !")
                     ->view('emails.mailContact');
     }
 }
