@@ -59,7 +59,7 @@ Route::patch('/modifier-album/{id}', 'App\Http\Controllers\albumController@delet
 Route::get('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
 
 
-Route::get('/contact','App\Http\Controllers\envoiDevisController@envoiMailDevis') ;
+Route::get('/devis','App\Http\Controllers\envoiDevisController@envoiMailDevis') ;
 
 //Articles
 Route::get('/articles/', 'App\Http\Controllers\articleController@index')->name("article.all"); 

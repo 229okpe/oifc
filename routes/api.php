@@ -46,7 +46,7 @@ Route::get('/', function () {return view('welcome');});
 Route::get('/mediatheque/', 'App\Http\Controllers\albumController@index')->name("album.all"); 
 Route::get('/mediatheque/{id}', 'App\Http\Controllers\albumController@show')->name("album.show"); 
 Route::get('/contact','App\Http\Controllers\envoiMailController@envoiMailContact') ;
-Route::get('/contact','App\Http\Controllers\envoiDevisController@envoiMailDevis') ;
+Route::get('/devis','App\Http\Controllers\envoiDevisController@envoiMailDevis') ;
 Route::get('/articles/', 'App\Http\Controllers\articleController@index')->name("article.all"); 
 Route::get('/articles/{id}', 'App\Http\Controllers\articleController@show')->name("article.show"); 
 

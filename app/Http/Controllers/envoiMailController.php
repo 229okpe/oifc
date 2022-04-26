@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 class envoiMailController extends Controller
 {
 
-    public function envoiMailContact($request){
+    public function envoiMailContact(){
      /*   $request->validation([
             'nom'=>['required'],
             'prenom'=>['required'],
@@ -30,14 +30,23 @@ class envoiMailController extends Controller
        'sujet' => 'Salutation',
        'message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat est eu sapien lacinia interdum. Sed vitae nibh urna. Etiam quis lorem ullamcorper, ullamcorper justo non, feugiat nunc. Etiam nulla quam, maximus id blandit at, sodales at quam. Nullam interdum arcu ac lacinia suscipit. Donec a purus nisl.'
    ];
-
-        if(Mail::to('test@mail.test')->send( new mailContact($formContactData) )){
+   $send=Mail::to('test@mail.test')->send( new mailContact($formContactData) );
+    
+   return response()->json([
+    'message' => 'envoyé'
+]);
+      /*  if(){
             return response()->json([
-                'message' => 'envoyé',
-                
+                'message' => 'success'
             ]);
         }
-        }
+        else {
+            return response()->json([
+                'message' => 'error'
+            ]); 
+        }*/
+       
 
     }
+}
 
