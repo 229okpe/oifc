@@ -43,7 +43,7 @@ class coursController extends Controller
             'titre' => ['required'],
             'description' => ['required'],
             'nbrechapitre' => ['required', 'numeric'],
-            'montant' => ['required', 'numeric']
+           
         ]);  
      $imageName=time().'-'.str_replace(' ','-',$request->titre).'.'.$request->image->extension();
         $path = $request->file('image')->storeAs('imageCours',  $imageName, 'public'); 
@@ -72,7 +72,7 @@ class coursController extends Controller
             $path = $request->file('fichier_outil-'.$i)->storeAs('imageCours', $fichier_name, 'public'); 
             Session::put("outils".$i, $fichier_name);  
             Activites::create([
-                'titre'=>$request->titre.$i,
+                'titre'=>$request->titre,
                 'id_cours'=>Session::get('id_cours'),
                 'file'=>$path,
                 'telechargeable'=>$request->downloadable
