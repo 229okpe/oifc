@@ -91,7 +91,11 @@ return [
     |
     */
 
-   
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@oifcgroup.com'),
+        'name' => env('MAIL_FROM_NAME', 'OIFC Group'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
