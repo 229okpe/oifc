@@ -16,7 +16,7 @@ class ActivitesFactory extends Factory
     public function definition()
     {
         return [
-            
+                
             "titre"=>$this->faker->title,
             "id_cours"=>$this->faker->randomNumber,
             "file"=>$this->faker->title,
