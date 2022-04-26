@@ -10,7 +10,7 @@ class envoiMailController extends Controller
 {
 
     public function envoiMailContact($request){
-        $request->validation([
+     /*   $request->validation([
             'nom'=>['required'],
             'prenom'=>['required'],
             'email'=>['required', 'email'],
@@ -23,13 +23,13 @@ class envoiMailController extends Controller
        'prenom' =>$request->prenom,
        'email' => $request->email,
         'message' => $request->message
-         ];
- /*  $formContactData= [
+         ];*/
+   $formContactData= [
        'nom' => 'Cedric Magloire',
        'email' => 'akoffodji@gmail.com',
        'sujet' => 'Salutation',
        'message' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat est eu sapien lacinia interdum. Sed vitae nibh urna. Etiam quis lorem ullamcorper, ullamcorper justo non, feugiat nunc. Etiam nulla quam, maximus id blandit at, sodales at quam. Nullam interdum arcu ac lacinia suscipit. Donec a purus nisl.'
-   ];*/
+   ];
 
         if(Mail::to('test@mail.test')->send( new mailContact($formContactData) )){
             return response()->json([
@@ -40,4 +40,4 @@ class envoiMailController extends Controller
         }
 
     }
-}
+
